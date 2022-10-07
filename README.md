@@ -1,47 +1,84 @@
-## 𝗔𝘂𝘁𝗼-Request-𝗔ccept-𝗕𝗼𝘁
+# Moviez_AutoBot - chat bot
+It is repository for chat bot: [@Moviez_AutoBot](https://t.me/Moviez_AutoBot)
 
-<p align="center">
-<a href="https://youtu.be/dAXspAB-xQU"><img src="https://telegra.ph/file/8f810bba085b31e4a6c96.jpg" /></a>
-</p>
+## What it is?
+This repository can be imported to [Bots.Business](https://bots.business) as a worked chat bot.
 
-<p align="center">
-<img src="https://img.shields.io/github/stars/Aadhi000/Auto-Request-Accept-Bot?style=social" />
-<img src="https://img.shields.io/github/forks/Aadhi000/Auto-Request-Accept-Bot?style=social" />
-</p>
+[Bots.Business](https://bots.business) - it is probably the first CBPaaS - Chat Bot Platform as a Service.
 
-<b>𝙷𝙴𝙻𝙻𝙾...⚡</b>
+A CBPaaS is a cloud-based platform that enables developers to create chatbots without needing to build backend infrastructure.
 
-<b>𝙸𝙰𝙼 𝙰 𝚂𝙸𝙼𝙿𝙻𝙴 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼 𝙰𝚄𝚃𝙾 𝚁𝙴𝚀𝚄𝙴𝚂𝚃 𝙰𝙲𝙲𝙴𝙿𝚃 𝙱𝙾𝚃.</b>
-<b>𝙵𝙾𝚁 𝚈𝙾𝚄𝚁 𝙲𝙷𝙰𝚃𝚂 𝙲𝚁𝙴𝙰𝚃𝙴 𝙾𝙽𝙴 𝙱𝙾𝚃...</b>
-<b>𝚅𝙸𝙳𝙴𝙾 𝙾𝙽 𝙼𝚈 𝚈𝙾𝚄𝚃𝚄𝙱𝙴 𝙲𝙷𝙰𝙽𝙽𝙴𝙻</b>
+## Create your own bot for Telegram from this Git repo
 
-<p align="center">
-  <a href="https://youtube.com/channel/UCf_dVNrilcT0V2R--HbYpMA">
-        <img src="https://img.shields.io/badge/𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄-red?logo=youtube" width="200">
-  </p>
+How to create bot?
+1. Create bot with [@BotFather](https://telegram.me/BotFather) and take Secret Token
+2. Create bot in App and add Secret Token
+3. Add Public Key from App as [Deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) with read access (and write access for bot exporting if you need it)
+4. Do import for this git repo
 
-<p align="center">
-<a href="https://telegram.dog/Aadhi011"><img alt="Telegram" src="https://img.shields.io/badge/Aadhi-2CA5E0?style=for-the-badge&logo=telegram&logoColor=green"/></a>
-</p>
+Now you can talk with yours new Telegram Bot
 
-### Heruko Deploy
-<a href="https://heroku.com/deploy?template=https://github.com/sydxyz/Auto-Request-Accept-Bot">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
+See [more](https://help.bots.business/getting-started)
 
-## Config Varies
+## Commands - in commands folder
+File name - it is command name (Bot it can be rewritten in command description)
 
-<b>`API_ID`</b> : **Goto [my.telegram.org](https://my.telegram.org) to obtain this.**
+Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`, `scnarios` (for simple logic) and other options.
 
-<b>`API_HASH`</b> : **Goto [my.telegram.org](https://my.telegram.org) to obtain this.**
+### Command description
+It is file header:
 
-<b>`BOT_TOKEN`</b> : **Get the bot token from [@BotFather](https://telegram.dog/BotFather)**
+    /*CMD
+      command: /test
+      help: this is help for ccommand
+      need_reply: [ true or false here ]
+      auto_retry_time: [ time in sec ]
+      answer: it is example answer for /test command
+      keyboard: button1, button2
+      aliases: /test2, /test3
+    CMD*/
 
-<b>`CHAT_ID`</b> : **Group/Channel ID Which you are going to use this bot**
+See [more](https://help.bots.business/commands)
 
-<b>`APPROVED_WELCOME`</b> : **On Or Off Approved Welcome Text**
+### Command body
+It is command code in JavaScript.
+Use Bot Java Script for logic in command.
 
-<b>`APPROVED_WELCOME_TEXT`</b> : **Approved Welcome Text**
-### Developer
-- [AutoApprove Bot by Mo Tech](https://github.com/PR0FESS0R-99/Auto-Approved-Bot)
-## [Share Support And Subscribe](https://youtube.com/channel/UCf_dVNrilcT0V2R--HbYpMA)
+For example:
+> Bot.sendMessage(2+2);
+
+See [more](https://help.bots.business/scenarios-and-bjs)
+
+
+## Libraries - in libs folder
+You can store common code in the libs folder. File name - it is library name.
+
+For example code in myLib.js:
+
+    function hello(){ Bot.sendMessage("Hello from lib!") }
+    function goodbye(name){ Bot.sendMessage("Goodbye, " + name) }
+
+    publish({
+      sayHello: hello,
+      sayGoodbyeTo: goodbye
+    })
+
+then you can run in any bot's command:
+
+    Libs.myLib.hello()
+    Libs.myLib.sayGoodbyeTo("Alice")
+
+See [more](https://help.bots.business/git/library)
+
+## Other bots example
+See other bots examples in the [github](https://github.com/bots-business?utf8=✓&tab=repositories&q=&type=public&language=javascript) or in the [Bot Store](https://bots.business/)
+
+
+## Other help
+[Help.bots.business](https://help.bots.business)
+
+## API
+See [API](https://api.bots.business/docs#/docs/summary)
+
+
+![](https://bots.business/images/web-logo.png)
